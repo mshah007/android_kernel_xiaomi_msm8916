@@ -42,6 +42,14 @@
 			label = "peripheral_mem";
 		};
 
+		hardboot_reserve_mem: hardboot_region@0 {
+			linux,reserve-contiguous-region;
+			linux,reserve-region;
+			linux,remove-completely;
+			reg = <0x0 0x8c300000 0x0 0x00100000>;
+			label = "hardboot_mem";
+		};
+
 		pstore_reserve_mem: pstore_reserve_mem_region@0 {
 			linux,reserve-contiguous-region;
 			linux,reserve-region;
