@@ -20,6 +20,10 @@
 #include "wcd-mbhc-v2.h"
 #include "wcdcal-hwdep.h"
 
+#ifdef CONFIG_MACH_WT88047
+#define WT_88047_L_AUDIO_PA_GPIO	1
+#endif
+
 #define MSM8X16_WCD_NUM_REGISTERS	0x6FF
 #define MSM8X16_WCD_MAX_REGISTER	(MSM8X16_WCD_NUM_REGISTERS-1)
 #define MSM8X16_WCD_CACHE_SIZE		MSM8X16_WCD_NUM_REGISTERS
