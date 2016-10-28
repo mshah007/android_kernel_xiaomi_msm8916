@@ -23,6 +23,20 @@
 extern unsigned long __cpu_setup(void);
 
 struct cpu_info cpu_table[] = {
+#if 0
+	{
+		.cpu_id_val	= 0x410fd070,
+		.cpu_id_mask	= 0xff0ffff0,
+		.cpu_name	= "Cortex A57 Processor",
+		.cpu_setup	= __cpu_setup,
+	},
+	{
+		.cpu_id_val	= 0x410fd030,
+		.cpu_id_mask	= 0xff0ffff0,
+		.cpu_name	= "Cortex A53 Processor",
+		.cpu_setup	= __cpu_setup,
+	},
+#endif
 	{
 		.cpu_id_val	= 0x000f0000,
 		.cpu_id_mask	= 0x000f0000,

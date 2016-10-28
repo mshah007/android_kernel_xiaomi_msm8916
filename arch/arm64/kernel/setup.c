@@ -429,6 +429,9 @@ void __init setup_arch(char **cmdline_p)
 
 static int __init arm64_device_init(void)
 {
+#if defined(CONFIG_COMMON_CLK)
+	of_clk_init(NULL);
+#endif
 	of_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);
 	return 0;
 }
@@ -562,3 +565,12 @@ static int __init msm8994_check_tlbi_workaround(void)
 	return 0;
 }
 arch_initcall_sync(msm8994_check_tlbi_workaround);
+
+static int __init dumphardboot(void) {
+	unsigned long *h = ioremap(0x8c300000, SZ_1M);
+	pr_info("Hardboot: %lx %lx %lx %lx %lx %lx %lx %lx\n",
+		h[0], h[1], h[2], h[3], h[4], h[5], h[6], h[7]);
+	iounmap(h);
+	return 0;
+}
+arch_initcall(dumphardboot);

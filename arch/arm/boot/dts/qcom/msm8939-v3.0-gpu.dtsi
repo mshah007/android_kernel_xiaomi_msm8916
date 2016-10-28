@@ -13,7 +13,6 @@
 &soc {
 	/* To use BIMC based bus governor */
 	gpubw: qcom,gpubw {
-                label = "gpubw";
 		compatible = "qcom,devbw";
 		governor = "bw_hwmon";
 		qcom,src-dst-ports = <26 512>;
@@ -61,7 +60,7 @@
 
 		clocks = <&clock_gcc clk_gcc_oxili_gfx3d_clk>,
 		         <&clock_gcc clk_gcc_oxili_ahb_clk>,
-			 <&clock_gcc clk_gcc_oxili_gmem_clk>,
+		         <&clock_gcc clk_gcc_oxili_gmem_clk>,
 		         <&clock_gcc clk_gcc_bimc_gfx_clk>,
 		         <&clock_gcc clk_gcc_bimc_gpu_clk>,
 		         <&clock_gcc clk_gcc_gtcu_ahb_clk>,

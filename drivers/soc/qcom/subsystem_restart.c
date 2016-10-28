@@ -43,7 +43,7 @@
 #include <asm/current.h>
 
 #define DISABLE_SSR 0x9889deed
-#define WT_SUBSYSTEM_REASTART_LEVEL "related"
+#define WT_SUBSYSTEM_RESTART_LEVEL "related"
 
 /* If set to 0x9889deed, call to subsystem_restart_dev() returns immediately */
 static uint disable_restart_work;
@@ -1525,12 +1525,12 @@ struct subsys_device *subsys_register(struct subsys_desc *desc)
 	subsys->dev.release = subsys_device_release;
 	subsys->notif_state = -1;
 	subsys->desc->sysmon_pid = -1;
-	if (0 == strncmp(WT_SUBSYSTEM_REASTART_LEVEL, "SYSTEM", 6)) {
+	if (0 == strncmp(WT_SUBSYSTEM_RESTART_LEVEL, "SYSTEM", 6)) {
 		printk("XXX::restartlevel system\r\n");
 		subsys->restart_level = RESET_SOC;
 	}
 
-	if (0 == strncmp(WT_SUBSYSTEM_REASTART_LEVEL, "RELATED", 7)) {
+	if (0 == strncmp(WT_SUBSYSTEM_RESTART_LEVEL, "RELATED", 7)) {
 		printk("XXX::restartlevel related\r\n");
 		subsys->restart_level = RESET_SUBSYS_COUPLED;
 	}
